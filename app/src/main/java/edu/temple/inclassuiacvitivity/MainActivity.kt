@@ -2,6 +2,7 @@ package edu.temple.inclassuiacvitivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 
@@ -14,7 +15,12 @@ class MainActivity : AppCompatActivity() {
         val displayTextView = findViewById<TextView>(R.id.textDisplay)
 
         /* TODO Step 1: Populate this array */
-        //val numberArray = Array Of Numbers
+        val numberArray = Array(50) { index ->
+            val evenNumber = (index + 1) * 2
+            evenNumber
+        }
+
+        Log.d("Output", numberArray.joinToString(", "))
 
         /* TODO Step 2: Create adapter to display items from array in Spinner */
         //spinner.adapter = ArrayAdapter...
