@@ -25,9 +25,19 @@ class MainActivity : AppCompatActivity() {
         /* TODO Step 2: Create adapter to display items from array in Spinner */
         spinner.adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, numberArray)
 
-
         // TODO Step 3: Change TextView's text size to the number selected in the Spinner */
-        //spinner.onItemSelectedListener = object: ...
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                // Retrieve the selected number from the array
+                val selectedNumber = numberArray[position]
 
+                // Set the TextView's text size to the selected number
+                displayTextView.textSize = selectedNumber.toFloat()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Handle case where nothing is selected (optional)
+            }
+        }
     }
 }
